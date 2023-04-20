@@ -85,8 +85,8 @@ const HW8 = () => {
                     <table id={'hw8-users'} className={s.users}>
                         <thead className={s.thead}>
                         <tr className={s.tr}>
-                            <td className={s.nameCol}>Full name</td>
-                            <td className={s.ageCol}>Age</td>
+                            <td className={s.nameCol}><b>Full name</b></td>
+                            <td className={s.ageCol}><b>Age</b></td>
                         </tr>
                         </thead>
 
