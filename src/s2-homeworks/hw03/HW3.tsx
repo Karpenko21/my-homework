@@ -23,8 +23,8 @@ export type UserType = {
     name: string // need to fix any
 }
 
-export const pureAddUserCallback = (name: string, setUsers: ([])=> void, users: UserType []) => { // need to fix any
-    const user = {id: v1(), name: name} // need to fix
+export const pureAddUserCallback = (name: string, setUsers: (users: UserType[]) => void, users: UserType []) => { // need to fix any
+    const user = { _id: v1(), name: name } // need to fix
     setUsers([...users, user])
 }
 
@@ -37,7 +37,7 @@ const HW3 = () => {
 
     return (
         <div id={'hw3'}>
-            <div className={s2.hwTitle}>Homework #3</div>
+            <div className={s2.hwTitle}>Hometask №3</div>
             {/*для автоматической проверки дз (не менять)*/}
 
             <div className={s2.hw}>

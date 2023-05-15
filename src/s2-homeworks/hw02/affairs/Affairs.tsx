@@ -11,7 +11,7 @@ type AffairsPropsType = {
 }
 
 function Affairs(props: AffairsPropsType) {
-    const setAll = () => {
+    /*const setAll = () => {
         props.setFilter("all")// need to fix
     }
     const setHigh = () => {
@@ -22,6 +22,13 @@ function Affairs(props: AffairsPropsType) {
     }
     const setLow = () => {
         props.setFilter("low")// need to fix
+    }*/
+
+   /* const onClickButtonHandler = (value: FilterType) => {
+        props.setFilter(value)
+    }*/
+    const onClickButtonHandler = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        props.setFilter(event.currentTarget.value as FilterType)
     }
 
     const cnAll = s.button + ' ' + s.all + (props.filter === 'all' ? ' ' + s.active : '')
@@ -40,34 +47,21 @@ function Affairs(props: AffairsPropsType) {
     return (
         <div>
             <div className={s.buttonContainer}>
-                <button
-                    id={'hw2-button-all'}
-                    onClick={setAll}
-                    className={cnAll}
-                >
-                    All
-                </button>
-                <button
-                    id={'hw2-button-high'}
-                    onClick={setHigh}
-                    className={cnHigh}
-                >
-                    High
-                </button>
-                <button
-                    id={'hw2-button-middle'}
-                    onClick={setMiddle}
-                    className={cnMiddle}
-                >
-                    Middle
-                </button>
-                <button
-                    id={'hw2-button-low'}
-                    onClick={setLow}
-                    className={cnLow}
-                >
-                    Low
-                </button>
+                {/*<button id={'hw2-button-all'} onClick={setAll} className={cnAll}>All</button>
+                <button id={'hw2-button-high'} onClick={setHigh} className={cnHigh}>High</button>
+                <button id={'hw2-button-middle'} onClick={setMiddle} className={cnMiddle}>Middle</button>
+                <button id={'hw2-button-low'} onClick={setLow} className={cnLow}>Low</button>*/}
+
+              {/*  <button id={'hw2-button-all'} onClick={()=>onClickButtonHandler("all")} className={cnAll}>All</button>
+                <button id={'hw2-button-high'} onClick={()=>onClickButtonHandler("high")} className={cnHigh}>High</button>
+                <button id={'hw2-button-middle'} onClick={()=>onClickButtonHandler("middle")} className={cnMiddle}>Middle</button>
+                <button id={'hw2-button-low'} onClick={()=>onClickButtonHandler("low")} className={cnLow}>Low</button>*/}
+
+                <button id={'hw2-button-all'} onClick={onClickButtonHandler} value={"all"} className={cnAll}>All</button>
+                <button id={'hw2-button-high'} onClick={onClickButtonHandler} value={"high"} className={cnHigh}>High</button>
+                <button id={'hw2-button-middle'} onClick={onClickButtonHandler} value={"middle"} className={cnMiddle}>Middle</button>
+                <button id={'hw2-button-low'} onClick={onClickButtonHandler} value={"low"} className={cnLow}>Low</button>
+
             </div>
             <div className={s.affairs}>{mappedAffairs}</div>
         </div>

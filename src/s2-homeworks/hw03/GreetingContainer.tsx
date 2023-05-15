@@ -1,20 +1,33 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Greeting from './Greeting'
 import { UserType } from './HW3'
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 type GreetingContainerPropsType = {
     users: UserType [] // need to fix any
-    addUserCallback: () => void // need to fix any
+    addUserCallback: (name: string) => void// need to fix any
 }
 
-export const pureAddUser = (name: string, setError: string, setName: any, addUserCallback: any) => {
+export const pureAddUser = (name: string, setError: (error: string) => void,  setName: (name: string) => void, addUserCallback: (name: string) => void) => {
+    if (name.trim() !== '') {
+        setName(name)
+        addUserCallback(name)
+        setError("")
+    } else {
+        pureOnBlur(name, setError)
+    }
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
 
-export const pureOnBlur = (name: any, setError: any) => { // если имя пустое - показать ошибку
+export const pureOnBlur = (name: string, setError: (error: string) => void) => { // если имя пустое - показать ошибку
+    if (name.trim() === '') {
+        setError('Ошибка! Введите имя!')
+    }
 }
 
-export const pureOnEnter = (e: any, addUser: any) => { // если нажата кнопка Enter - добавить
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: () => void) => { // если нажата кнопка Enter - добавить
+    if (e.key === "Enter") addUser()
 }
 
 // более простой и понятный для новичков
@@ -32,22 +45,22 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => { // need to fix any
            setName(e.currentTarget.value) // need to fix
 
-
         error && setError('')
     }
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
+        setName("")
     }
 
     const onBlur = () => {
         pureOnBlur(name, setError)
     }
 
-    const onEnter = (e: any) => {
+    const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         pureOnEnter(e, addUser)
     }
 
-    const totalUsers = 0 // need to fix
+    const totalUsers = users.length // need to fix
     const lastUserName = name // need to fix
 
     return (
