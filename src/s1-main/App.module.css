@@ -29,7 +29,10 @@ body * {
     line-height: 27px;
     color: #000000;
     margin-bottom: 10px;
+    margin-left: 70px;
     height: 148px;
+    vertical-align: bottom;
+    padding: 40px;
 }
 .hw1{
     min-height: 100vh;
