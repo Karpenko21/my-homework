@@ -1,18 +1,16 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Greeting from './Greeting'
 import { UserType } from './HW3'
-//import {Simulate} from "react-dom/test-utils";
-//import error = Simulate.error;
+
 
 type GreetingContainerPropsType = {
     users: UserType [] // need to fix any
     addUserCallback: (name: string) => void// need to fix any
 }
-let lastUserName = ""
+
 export const pureAddUser = (name: string, setError: (error: string) => void,  setName: (name: string) => void, addUserCallback: (name: string) => void) => {
     if (name.trim() !== '') {
         addUserCallback(name)
-        lastUserName = name
        setName('')
 
     } else {
@@ -61,7 +59,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length // need to fix
-    //const lastUserName = name //users[users.length - 1].name : "" //(name: string) => name.trim() === '' ? name : ""// need to fix
+    const lastUserName = users[users.length - 1]?.name //(name: string) => name.trim() === '' ? name : ""// need to fix
 
     return (
         <Greeting
