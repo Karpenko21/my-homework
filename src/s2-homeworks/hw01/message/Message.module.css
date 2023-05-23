@@ -1,12 +1,12 @@
 .message {
     margin: 25px;
+
 }
 
 .imageAndText {
     display: flex;
     flex-direction: row-reverse;
     margin: 20px;
-
 
 }
 
