@@ -23,6 +23,7 @@ body * {
     padding: 24px 0;
     border-top: 1px solid #D9D9D9;
     border-bottom: 1px solid #D9D9D9;
+
 }
 
 .hwTitle {
@@ -31,10 +32,11 @@ body * {
     line-height: 27px;
     color: #000000;
     margin-bottom: 10px;
-    margin-left: 70px;
-    height: 48px;
+    margin-left: 73px;
+    height: 80px;
     vertical-align: bottom;
-    padding: 40px;
+    padding-top: 30px;
+
 }
 .hw1{
     min-height: 100vh;
