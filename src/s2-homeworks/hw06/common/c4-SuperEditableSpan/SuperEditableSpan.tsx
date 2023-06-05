@@ -41,18 +41,19 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
     spanProps || {}
 
     const onEnterCallback = () => {
+        setEditMode(false)
         // выключить editMode при нажатии Enter // делают студенты
-
         onEnter?.()
     }
     const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
+        setEditMode(false)
         // выключить editMode при нажатии за пределами инпута // делают студенты
-
         onBlur?.(e)
     }
     const onDoubleClickCallBack = (
         e: React.MouseEvent<HTMLSpanElement, MouseEvent>
     ) => {
+        setEditMode(true)
         // включить editMode при двойном клике // делают студенты
 
         onDoubleClick?.(e)
@@ -84,7 +85,6 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                         {...restSpanProps}
                     >
                         {/*если нет захардкодженного текста для спана, то значение инпута*/}
-
                         {children || restProps.value || defaultText}
                     </span>
                 </div>
