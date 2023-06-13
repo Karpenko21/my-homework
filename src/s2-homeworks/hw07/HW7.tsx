@@ -12,7 +12,7 @@ import s from './HW7.module.css'
 * */
 
 const arr = [
-    { id: 1, value: 'x' },
+    { id: 1, value: 'kbkjjnkfhfghfgh' },
     { id: 2, value: 'y' },
     { id: 3, value: 'z' },
 ] // value может быть изменено
@@ -22,7 +22,7 @@ const HW7 = () => {
 
     return (
         <div id={'hw7'}>
-            <div className={s2.hwTitle}>Homework #7</div>
+            <div className={s2.hwTitle}>Hometask №7</div>
 
             {/*демонстрация возможностей компонент:*/}
             <div className={s2.hw}>
