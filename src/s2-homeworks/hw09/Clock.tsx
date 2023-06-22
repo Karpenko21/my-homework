@@ -15,7 +15,6 @@ function Clock() {
             setDate(new Date(restoreState('hw9-date', Date.now())))
         }, 1000)
         setTimerId(id)
-        console.log(timerId)
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
     }
@@ -23,7 +22,6 @@ function Clock() {
     const stop = () => {
         clearInterval(timerId)
         setTimerId(undefined)
-        console.log(timerId)
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
     }
 
