@@ -12,17 +12,16 @@ function Clock() {
     const start = () => {
         stop()
         const id: number = +setInterval( ()=> {
-            setDate(new Date())
+            setDate(new Date(restoreState('hw9-date', Date.now())))
         }, 1000)
         setTimerId(id)
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
-
     }
 
     const stop = () => {
+        clearInterval(timerId)
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
