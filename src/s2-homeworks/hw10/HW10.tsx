@@ -33,6 +33,7 @@ const HW10 = () => {
             <div className={s2.hwTitle}>Hometask № 10</div>
 
             <div className={s2.hw}>
+                <div style={{height: "300px"}}>
                 {isLoading ? (
                     <div id={'hw10-loading'}>
                         <Loader/>
@@ -46,6 +47,7 @@ const HW10 = () => {
                         Set loading...
                     </SuperButton>
                 )}
+                </div>
             </div>
         </div>
     )
