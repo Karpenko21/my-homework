@@ -32,7 +32,13 @@ function Clock() {
         setShow(false)
     }
 
-    const stringTime = date.toLocaleTimeString() || <br/>  //'date->time' // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+    const stringTime = new Intl.DateTimeFormat(
+        "ru", {hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+        }).format(date) || <br/>
+    //'date->time' // часы24:минуты:секунды (01:02:03)/(23:02:03)/(24:00:00)/(00:00:01) // пишут студенты
+
     const stringDate = new Intl.DateTimeFormat(
         "ru", {day: "numeric",
             month: "numeric",
